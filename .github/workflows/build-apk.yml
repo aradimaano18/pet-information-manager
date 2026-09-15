@@ -39,6 +39,16 @@ jobs:
 
 
       # ----------------------------------------------------------
+      # Firebase environment variables
+      # ----------------------------------------------------------
+      - name: Create Firebase environment file
+        env:
+          FIREBASE_ENV: ${{ secrets.FIREBASE_ENV }}
+        run: |
+          printf '%s\n' "$FIREBASE_ENV" > .env
+
+
+      # ----------------------------------------------------------
       # 4. Build Ionic/Vue application
       # ----------------------------------------------------------
       - name: Build Ionic application
